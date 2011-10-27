@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    FindBugs plugin descriptor for Android plugin
+
+    Written by Joe Bowbeer  
+    This code is in the public domain
+-->
+<FindbugsPlugin
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="findbugsplugin.xsd" 
+        pluginid="com.joebowbeer.findbugs.android"
+        provider="Joe Bowbeer"
+        website="http://linkedin.com/in/joebowbeer">
+
+    <Detector
+        class="com.joebowbeer.findbugs.detect.AndroidHandlerIdiom"
+        speed="fast"
+        reports="ANDROID_HANDLER_IDIOM" />
+
+    <BugPattern
+        type="ANDROID_HANDLER_IDIOM"
+        abbrev="AHI"
+        category="PERFORMANCE"/>
+
+</FindbugsPlugin>

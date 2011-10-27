@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="messagecollection.xsd">
+
+    <Plugin>
+        <ShortDescription>FindBugs Plugin for Android</ShortDescription>
+        <Details>Provides detectors for Android apps.</Details>
+    </Plugin>
+
+    <Detector class="com.joebowbeer.findbugs.detect.AndroidHandlerIdiom">
+        <Details>Finds android.os.Handler inner class instances.</Details>
+    </Detector>
+
+    <BugPattern type="ANDROID_HANDLER_IDIOM">
+        <ShortDescription>Found android.os.Handler inner class</ShortDescription>
+        <LongDescription>Should {0} be a _static_ nested class?</LongDescription>
+        <Details>
+<![CDATA[
+<p>In Android, Handler classes should be static or leaks might occur. Messages enqueued on the
+application thread's MessageQueue also retain their target Handler. If the Handler is an inner
+class, its outer class will be retained as well. To avoid leaking the outer class, declare the
+Handler as a static nested class with a WeakReference to its outer class.</p>
+]]>
+        </Details>
+    </BugPattern>
+
+    <BugCode abbrev="AHI">android.os.Handler inner class should be static</BugCode>
+</MessageCollection>
